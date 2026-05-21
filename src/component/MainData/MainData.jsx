@@ -1,9 +1,10 @@
 import { Formik } from "formik"
 import { DataName } from "../DataName/DataName";
+import { DataYear } from '../DataYear/DataYear.jsx'
 import style from './MainData.module.css'
 
 
-function MainData({ schemValid }){
+function MainData({ schemValid,dataBird,schemaBirthday,res }){
     return(
         <Formik 
         initialValues={{
@@ -39,6 +40,7 @@ function MainData({ schemValid }){
                     onBlur={handleBlur}
                     type='text'
                     />
+                    <DataYear dataBird={dataBird} schemaBirthday={schemaBirthday} res={res}/>
                     <DataName
                     name="email"
                     text='Enter your email'
