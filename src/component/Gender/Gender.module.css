@@ -3,29 +3,17 @@
     display: flex;
 
 }
-.one{
-    width:33%;
+.one{   
     display: flex;
     flex-direction: column;
     align-items:start;
-}
-.two{
-    width:33%;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-}
-.three{
-    width:33%;
-    display: flex;
-    flex-direction: column;
-    align-items:flex-end;
+    width:100%;
 }
 .content select{
     border:none;
-    font-size:15px;
     background-color:transparent;
-    width:80%;
+    width:100%;
+    font-size:15px;
     border-bottom:1px solid #ececec;
     color:#ececec;
     padding-bottom:10px;

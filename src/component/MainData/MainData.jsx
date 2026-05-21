@@ -1,10 +1,12 @@
 import { Formik } from "formik"
 import { DataName } from "../DataName/DataName";
 import { DataYear } from '../DataYear/DataYear.jsx'
+import { Gender } from "../Gender/Gender.jsx";
 import style from './MainData.module.css'
 
 
-function MainData({ schemValid,dataBird,schemaBirthday,res }){
+function MainData({ schemValid,dataBird,res}){
+    
     return(
         <Formik 
         initialValues={{
@@ -12,13 +14,17 @@ function MainData({ schemValid,dataBird,schemaBirthday,res }){
             lastname:'',
             email:'',
             password:'',
-            confirmPassword:''
+            confirmPassword:'',
+            month:'',
+            day:'',
+            year:'',
+            gender : '',
         }}
         onSubmit={(value) => console.log('hello')}
         validationSchema={schemValid}
         validateOnBlur
         >
-            {({values,errors,handleChange,handleSubmit,handleBlur,isValid,dirty,touched}) => (
+            {({values,errors,handleChange,handleSubmit,handleBlur,isValid,dirty,touched,setFieldTouched,setFieldValue}) => (
                 <div className={style.block}>
                     <DataName
                     name="name"
@@ -40,7 +46,22 @@ function MainData({ schemValid,dataBird,schemaBirthday,res }){
                     onBlur={handleBlur}
                     type='text'
                     />
-                    <DataYear dataBird={dataBird} schemaBirthday={schemaBirthday} res={res}/>
+                    <DataYear
+                    res={res}
+                    dataBird={dataBird}
+                    values={values}
+                    errors={errors}
+                    touched={touched}
+                    setFieldValue={setFieldValue}
+                    setFieldTouched={setFieldTouched}
+                    />
+                    <Gender 
+                    values={values}
+                    errors={errors}
+                    touched={touched}
+                    setFieldValue={setFieldValue}
+                    setFieldTouched={setFieldTouched}
+                    />
                     <DataName
                     name="email"
                     text='Enter your email'
@@ -71,7 +92,7 @@ function MainData({ schemValid,dataBird,schemaBirthday,res }){
                     onBlur={handleBlur}
                     type='password'
                     />
-                    <button>Submit</button>
+                    <button type="submit" disabled={isValid && dirty} onClick={handleSubmit}>Submit</button>
                 </div>
             )}
         </Formik>

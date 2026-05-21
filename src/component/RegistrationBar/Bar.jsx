@@ -1,12 +1,12 @@
 import { MainData } from '../MainData/MainData'
 import style from './Bar.module.css'
 
-function Bar({ schemValid,dataBird,schemaBirthday,res }){
+function Bar({ schemValid,dataBird,res}){
     return(
         <div className={style.Bar}>
             <div className={style.container}>
                 <h1 className={style.title}>Sig-up</h1>
-                <MainData schemValid={schemValid} dataBird={dataBird} schemaBirthday={schemaBirthday} res={res}/>
+                <MainData schemValid={schemValid} dataBird={dataBird} res={res}/>
             </div>
         </div>
     )
