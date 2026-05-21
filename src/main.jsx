@@ -1,4 +1,4 @@
-import { schemValid,dataBird,res} from './help/help.js'
+import { schemValid,dataBird,res} from './data/data.js'
 import { createRoot } from 'react-dom/client'
 import { App } from './App.jsx'
 
